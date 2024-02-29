@@ -1,18 +1,15 @@
-'use strict';
+const inputName = document.getElementById(`name-input`);
+const outputName = document.getElementById(`name-output`);
 
-function getElementWidth(content, padding, border) {
+inputName.addEventListener(`input`, uppName);
 
-  const contentWidth = parseFloat(content);
-    const paddingWidth = parseFloat(padding);
-    const borderWidth = parseFloat(border);
+function uppName() {
+    const value = inputName.value.trim();
 
-    // Розрахунок загальної ширини елемента з урахуванням box-sizing
-    const totalWidth = contentWidth + 2 * paddingWidth + 2 * borderWidth;
+    if (value === ``) {
+        outputName.textContent = `Anonymous`;
+    } else {
+        outputName.textContent = value;
+    }
 
-    return totalWidth;
-    
 }
-
-console.log(getElementWidth("50px", "8px", "4px"));
-console.log(getElementWidth("60px", "12px", "8.5px"));
-console.log(getElementWidth("200px", "0px", "0px"));
